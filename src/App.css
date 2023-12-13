@@ -20,4 +20,10 @@ body {
 .calculator-output {
   grid-column: 1/-1;
   background-color: black;
+  color: white;
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
 }
