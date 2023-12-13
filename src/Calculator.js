@@ -1,10 +1,12 @@
 import { useReducer } from "react";
+import Button from "./Button";
 
-function reducer(state, action) {
-  switch (action.type) {
-    case '9':
+function reducer(state, {type, payload}) {
+  switch (type) {
+    case 'add-digit':
+      console.log()
       return {
-        output: state.output + '9'
+        output: state.output + `${payload.digit}`
       }
     default:
       return state
@@ -13,11 +15,11 @@ function reducer(state, action) {
 
 const Calculator = () => {
 
-  const[state, dispatch] = useReducer(reducer, { output: 0})
+  const[state, dispatch] = useReducer(reducer, { output: ''})
 
-  function input9() {
-    dispatch({type: '9'})
-  }
+  // function handleAddDigit(payload) {
+  //   dispatch({type: 'add-digit', payload: payload})
+  // }
 
   return ( 
     <div className="calculator">
@@ -25,9 +27,10 @@ const Calculator = () => {
         <div className="calculator-output">
           {state.output}
         </div>
-        <button className="calculator-button">7</button>
+        <Button digit={7} dispatch={dispatch}/>
+        {/* <button className="calculator-button">7</button> */}
         <button className="calculator-button">8</button>
-        <button className="calculator-button" onClick={input9}>9</button>
+        <button className="calculator-button">9</button>
         <button className="calculator-button">X</button>
         <button className="calculator-button">4</button>
         <button className="calculator-button">5</button>
