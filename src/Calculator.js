@@ -14,8 +14,13 @@ function reducer(state, {type, payload}) {
         output: state.output + `${payload.digit}`
       }
     case 'operation':
-      if (state.output.length === 0 || state.prev) {
+      if (state.output.length === 0) {
         return state
+      } if (state.prev) {
+        return {
+          output: '',
+          prev: parseInt(state.prev) + parseInt(state.output) + payload.operation
+        }
       } else return {
         prev: state.output + `${payload.operation}`,
         output: ''
