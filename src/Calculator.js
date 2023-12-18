@@ -30,10 +30,11 @@ function reducer(state, {type, payload}) {
         output: ''
       }
     case 'evaluate':
-      console.log(state.prev, state.output)
-      return {
-        output: parseInt(state.prev) + parseInt(state.output)
-      }
+      if (state.prev && state.output) {
+        return {
+          output: parseInt(state.prev) + parseInt(state.output)
+        }
+    } else return state
     default:
       return state
   }
