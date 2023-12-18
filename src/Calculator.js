@@ -5,7 +5,7 @@ import Operation from "./Operation";
 function reducer(state, {type, payload}) {
   switch (type) {
     case 'add-digit':
-      if (state.output.length === 0 && payload.digit === 0) {
+      if (!state.output && payload.digit === 0) {
         return state
       } if (payload.digit === '.' && state.output.includes('.')) {
         return state
@@ -14,30 +14,48 @@ function reducer(state, {type, payload}) {
         output: state.output + `${payload.digit}`
       }
     case 'operation':
-      if (state.output.length === 0) {
-        return state
-      } if (state.prev) {
+      console.log(state, payload)
+      if (state.operation && !state.output) return state
+      if (state.prev === '') {
         return {
-          output: '',
-          prev: parseInt(state.prev) + parseInt(state.output) + payload.operation
+          ...payload,
+          prev: state.output,
+          output: ''
         }
-      } else return {
-        prev: state.output + `${payload.operation}`,
-        output: ''
-      }
-    case 'clear':
-      return {
+      } else return { 
+        ...payload,
+        prev: evaluate(parseInt(state.prev), state.operation,parseInt(state.output)),
         output: ''
       }
     case 'evaluate':
-      if (state.prev && state.output) {
-        return {
-          output: parseInt(state.prev) + parseInt(state.output)
-        }
-    } else return state
+      console.log(state)
+      return {
+        output: evaluate(parseInt(state.prev), state.operation,parseInt(state.output))
+      }
     default:
       return state
   }
+}
+
+
+function evaluate(firstNum, operation, secondNum) {
+  let solution = ''
+  switch(operation) {
+    case '+':
+      solution = firstNum + secondNum
+      break
+    case '-':
+      solution = firstNum - secondNum
+      break
+    case 'x':
+      solution = firstNum * secondNum
+      break
+    case '/':
+      solution = firstNum / secondNum
+      break
+      default: return ''
+    }
+    return solution
 }
 
 
@@ -49,7 +67,7 @@ const Calculator = () => {
     <div className="calculator">
       <div className="calculator-grid">
         <div className="calculator-output">
-          <div>{state.prev}</div>
+          <div>{state.prev}{state.operation}</div>
           <div>{state.output}</div>
         </div>
         <Button digit={7} dispatch={dispatch}/>
