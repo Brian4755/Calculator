@@ -21,6 +21,8 @@ body {
   grid-column: 1/-1;
   background-color: black;
   color: white;
+  font-size: 2rem;
+  word-break: break-all;
 }
 
 .calculator-grid > button {
