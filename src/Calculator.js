@@ -5,9 +5,11 @@ import Operation from "./Operation";
 function reducer(state, {type, payload}) {
   switch (type) {
     case 'add-digit':
+      console.log(typeof(state.output), 'here')
+      console.log(state.output)
       if (!state.output && payload.digit === 0) {
         return state
-      } if (payload.digit === '.' && state.output.includes('.')) {
+      } if (payload.digit === '.' && state.output.toString().includes('.')) {
         return state
       } else return {
         ...state,
