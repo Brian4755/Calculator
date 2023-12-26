@@ -13,7 +13,7 @@ body {
 .calculator-grid {
   display: grid;
   grid-template-columns: repeat(4, 4rem);
-  grid-template-rows: minmax(5.5rem, auto) repeat(4, 4rem);
+  grid-template-rows: minmax(5.5rem, auto) repeat(5, 4rem);
   justify-content: center;
   gap: 0.3rem;
 }
@@ -41,4 +41,9 @@ body {
 
 .calculator-grid > button {
   border-radius: 35%;
+}
+
+.span-two {
+  grid-column: span 2;
+  background-color: blue;
 }
