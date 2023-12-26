@@ -34,6 +34,12 @@ function reducer(state, {type, payload}) {
           output: evaluate(parseInt(state.prev), state.operation,parseInt(state.output))
         }
       } else return state
+    case 'clear':
+      return {
+        prev: '',
+        output: '',
+        operation: ''
+      }
     default:
       return state
   }
