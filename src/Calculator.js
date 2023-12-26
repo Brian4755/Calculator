@@ -29,9 +29,10 @@ function reducer(state, {type, payload}) {
        }
       } else return state
     case 'evaluate':
+      console.log('evaluate', state.prev, typeof(state.prev))
       if (state.prev && state.operation && state.output) {
         return {
-          output: evaluate(parseInt(state.prev), state.operation,parseInt(state.output))
+          output: evaluate(parseFloat(state.prev), state.operation,parseFloat(state.output))
         }
       } else return state
     case 'clear':
@@ -49,6 +50,7 @@ function evaluate(firstNum, operation, secondNum) {
   let solution = ''
   switch(operation) {
     case '+':
+      console.log(typeof(firstNum), firstNum, typeof(secondNum), secondNum)
       solution = firstNum + secondNum
       break
     case '-':
@@ -81,7 +83,7 @@ const Calculator = () => {
         <Button digit={4} dispatch={dispatch}/>
         <Button digit={5} dispatch={dispatch}/>
         <Button digit={6} dispatch={dispatch}/>
-        <button className="calculator-button">/</button>
+        <Operation operation={'/'} dispatch={dispatch}/>
         <Button digit={1} dispatch={dispatch}/>
         <Button digit={2} dispatch={dispatch}/>
         <Button digit={3} dispatch={dispatch}/>
@@ -94,5 +96,5 @@ const Calculator = () => {
     </div>
    );
 }
- 
+
 export default Calculator;
