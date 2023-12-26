@@ -14,29 +14,30 @@ function reducer(state, {type, payload}) {
         output: state.output + `${payload.digit}`
       }
     case 'operation':
-      console.log(state, payload)
-      if (state.operation && !state.output) return state
-      if (state.prev === '') {
+      if (!state.prev && state.output) {
         return {
           ...payload,
           prev: state.output,
           output: ''
         }
-      } else return { 
-        ...payload,
-        prev: evaluate(parseInt(state.prev), state.operation,parseInt(state.output)),
-        output: ''
-      }
+      } 
+      if (state.prev && state.output) {
+       return  {
+         ...payload,
+         prev: evaluate(parseInt(state.prev), state.operation,parseInt(state.output)),
+         output: ''
+       }
+      } else return state
     case 'evaluate':
-      console.log(state)
-      return {
-        output: evaluate(parseInt(state.prev), state.operation,parseInt(state.output))
-      }
+      if (state.prev && state.operation && state.output) {
+        return {
+          output: evaluate(parseInt(state.prev), state.operation,parseInt(state.output))
+        }
+      } else return state
     default:
       return state
   }
 }
-
 
 function evaluate(firstNum, operation, secondNum) {
   let solution = ''
@@ -58,11 +59,8 @@ function evaluate(firstNum, operation, secondNum) {
     return solution
 }
 
-
 const Calculator = () => {
-
-  const[state, dispatch] = useReducer(reducer, { output: '', prev: ''})
-
+  const[state, dispatch] = useReducer(reducer, { output: '', prev: '', operation: ''})
   return ( 
     <div className="calculator">
       <div className="calculator-grid">
