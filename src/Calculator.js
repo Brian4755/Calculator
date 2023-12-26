@@ -75,7 +75,7 @@ const Calculator = () => {
     <div className="calculator">
       <div className="calculator-grid">
         <div className="calculator-output">
-          <div>{state.prev}{state.operation}</div>
+          <div className="previous-output">{state.prev}{state.operation}</div>
           <div>{state.output}</div>
         </div>
         <Button digit={7} dispatch={dispatch}/>

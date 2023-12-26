@@ -13,19 +13,32 @@ body {
 .calculator-grid {
   display: grid;
   grid-template-columns: repeat(4, 4rem);
-  grid-template-rows: minmax(4rem, auto) repeat(4, 4rem);
+  grid-template-rows: minmax(5.5rem, auto) repeat(4, 4rem);
   justify-content: center;
+  gap: 0.3rem;
 }
 
 .calculator-output {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   grid-column: 1/-1;
   background-color: black;
   color: white;
   font-size: 2rem;
   word-break: break-all;
+  padding-right: 0.5rem;
+}
+
+.previous-output {
+  font-size: 1.5rem;
 }
 
 .calculator-grid > button {
   cursor: pointer;
   font-size: 2rem;
+}
+
+.calculator-grid > button {
+  border-radius: 35%;
 }
