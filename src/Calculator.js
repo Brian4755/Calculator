@@ -58,7 +58,7 @@ function evaluate(firstNum, operation, secondNum) {
     case '-':
       solution = firstNum - secondNum
       break
-    case 'x':
+    case '*':
       solution = firstNum * secondNum
       break
     case '/':
@@ -80,7 +80,7 @@ const Calculator = () => {
         </div>
         <button className="clear-button" onClick={() => dispatch({type: 'clear'})}>C</button>
         <Operation operation={'/'} dispatch={dispatch}/>
-        <Operation operation={'x'} dispatch={dispatch}/>
+        <Operation operation={'*'} dispatch={dispatch}/>
         <Operation operation={'-'} dispatch={dispatch}/>
         <Button digit={7} dispatch={dispatch}/>
         <Button digit={8} dispatch={dispatch}/>

@@ -3,7 +3,9 @@
 }
 
 body {
-  background-color: rgb(127,184,225)
+  background-color: rgb(127,184,225);
+  /* margin: 0;
+  padding: 0; */
 }
 
 .App {
