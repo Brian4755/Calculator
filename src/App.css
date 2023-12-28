@@ -6,13 +6,25 @@ body {
   background-color: rgb(127,184,225)
 }
 
+.App {
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  font-size: 2rem
+}
+
 .calculator {
   margin-top: 3rem;
   background-color: rgb(19, 29, 37);
   width: fit-content;
   padding: 4rem 1.5rem 1.5rem 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   border-radius: 28px;
   border: 1px solid white;
   outline: 2px solid rgb(19, 29, 37);
