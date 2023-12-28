@@ -1,7 +1,8 @@
 const Description = () => {
   return ( 
   <div className='description'>
-  This works
+    React.JS Calculator
+    Fully developed and Designed
   </div>
   );
 }

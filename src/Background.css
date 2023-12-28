@@ -2,6 +2,7 @@
   position:absolute;
   overflow: hidden;
   height: 100dvh;
+  min-height: 670px;
   width: 100dvw;
   top: 0;
   left: 0;
@@ -10,12 +11,12 @@
 
 .orange-one {
   position: absolute;
-  height: 85dvh;
-  width: 85dvh;
-  background-color: orange;
+  height:650px;
+  width: 650px;
+  background-color: rgb(14,140,229);
   z-index: -1;
   border-radius: 50%;
   transform: translate(-50%,-50%);
   left: 50%;
-  top: 45%;
+  top: 50%;
 }
