@@ -1,6 +1,6 @@
 const Operation = ({dispatch, operation}) => {
   return ( 
-    <button onClick={() => dispatch( {type: 'operation', payload: {operation}})}>
+    <button className={operation==='+' ? 'horizontal-span' : null} onClick={() => dispatch( {type: 'operation', payload: {operation}})}>
       {operation}
     </button>
    );
