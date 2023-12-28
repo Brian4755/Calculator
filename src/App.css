@@ -111,4 +111,9 @@ button {
   .description {
     text-align: center;
   }
+  .span-one, .span-two {
+    margin-left: 0;
+    margin: 0;
+    text-align: center;
+  }
 }
