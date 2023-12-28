@@ -21,7 +21,7 @@ body {
 .calculator-grid {
   display: grid;
   grid-template-columns: repeat(4, 3rem);
-  grid-template-rows: minmax(10rem, auto) repeat(5, 2.6rem);
+  grid-template-rows: minmax(11rem, auto) repeat(5, 2.8rem);
   justify-content: center;
   gap: 1rem;
 }
