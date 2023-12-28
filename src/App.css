@@ -9,7 +9,7 @@ body {
 .App {
   display: flex;
   flex-direction: row;
-  gap: 3dvw;
+  gap: 20dvw;
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
@@ -103,7 +103,7 @@ button {
   font-weight: 700;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 700px) {
   .App {
     flex-direction: column;
   }

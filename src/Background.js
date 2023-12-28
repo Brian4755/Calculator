@@ -3,7 +3,7 @@ import './Background.css';
 const Background = () => {
   return ( 
     <div className='background'>
-      <div className="orange-one"></div>
+      <div className="blue-one"></div>
     </div>
    );
 }

@@ -9,14 +9,23 @@
   z-index:-1
 }
 
-.orange-one {
+.blue-one {
   position: absolute;
-  height:650px;
-  width: 650px;
+  height: 80dvw;
+  width: 80dvw;
   background-color: rgb(14,140,229);
   z-index: -1;
   border-radius: 50%;
   transform: translate(-50%,-50%);
-  left: 50%;
+  left: 10%;
   top: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+  .blue-one {
+    left: 50%;
+    top: 60%;
+    height: 500px;
+    width: 500px;
+  }
 }
