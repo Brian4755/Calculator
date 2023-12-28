@@ -78,7 +78,7 @@ const Calculator = () => {
           <div className="previous-output">{state.prev}{state.operation}</div>
           <div>{state.output}</div>
         </div>
-        <button onClick={() => dispatch({type: 'clear'})}>C</button>
+        <button className="clear-button" onClick={() => dispatch({type: 'clear'})}>C</button>
         <Operation operation={'/'} dispatch={dispatch}/>
         <Operation operation={'x'} dispatch={dispatch}/>
         <Operation operation={'-'} dispatch={dispatch}/>

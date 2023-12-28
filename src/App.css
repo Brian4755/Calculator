@@ -66,3 +66,8 @@ body {
   grid-row: 5/-1;
   grid-column: 4/4;
 }
+
+.clear-button {
+  background-color: rgb(74,85,94);
+  color: rgb(105,118,127)
+}
