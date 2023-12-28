@@ -82,19 +82,19 @@ const Calculator = () => {
         <Operation operation={'/'} dispatch={dispatch}/>
         <Operation operation={'x'} dispatch={dispatch}/>
         <Operation operation={'-'} dispatch={dispatch}/>
-        <Operation operation={'+'} dispatch={dispatch}/>
         <Button digit={7} dispatch={dispatch}/>
         <Button digit={8} dispatch={dispatch}/>
         <Button digit={9} dispatch={dispatch}/>
         <Button digit={4} dispatch={dispatch}/>
         <Button digit={5} dispatch={dispatch}/>
         <Button digit={6} dispatch={dispatch}/>
+        <Operation operation={'+'} dispatch={dispatch}/>
         <Button digit={1} dispatch={dispatch}/>
         <Button digit={2} dispatch={dispatch}/>
         <Button digit={3} dispatch={dispatch}/>
         <Button digit={0} dispatch={dispatch}/>
         <Button digit={'.'} dispatch={dispatch}/>
-        <button onClick={() => dispatch({type: 'evaluate'})}>=</button>
+        <button className="evaluate-button" onClick={() => dispatch({type: 'evaluate'})}>=</button>
       </div>
     </div>
    );
