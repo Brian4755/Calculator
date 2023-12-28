@@ -18,12 +18,9 @@ body {
 
 .calculator-grid {
   display: grid;
-  /* grid-template-columns: repeat(4, 4rem); */
   grid-template-columns: repeat(4, 3rem);
-  /* grid-template-rows: minmax(10rem, auto) repeat(5, 3.5rem); */
   grid-template-rows: minmax(10rem, auto) repeat(5, 2.6rem);
   justify-content: center;
-  /* gap: 0.3rem; */
   gap: 1rem;
 }
 
@@ -32,7 +29,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   grid-column: 1/-1;
-  background-color: black;
+  background-color: rgb(19, 29, 37);
   color: white;
   font-size: 2rem;
   word-break: break-all;
@@ -50,7 +47,7 @@ body {
 }
 
 .calculator-grid > button {
-  border-radius: 15%;
+  border-radius: 13px;
 }
 
 .span-two {
@@ -76,7 +73,7 @@ body {
 }
 
 .span-two, .span-one {
-  color: rgb(42,153,230);
+  color: rgb(43,131,192);
   background-color: rgb(48,49,54);
 }
 
