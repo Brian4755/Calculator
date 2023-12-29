@@ -5,8 +5,6 @@ import Operation from "./Operation";
 function reducer(state, {type, payload}) {
   switch (type) {
     case 'add-digit':
-      console.log(typeof(state.output), 'here')
-      console.log(state.output)
       if (!state.output && payload.digit === 0) {
         return state
       } if (payload.digit === '.' && state.output.toString().includes('.')) {
@@ -31,7 +29,6 @@ function reducer(state, {type, payload}) {
        }
       } else return state
     case 'evaluate':
-      console.log('evaluate', state.prev, typeof(state.prev))
       if (state.prev && state.operation && state.output) {
         return {
           output: evaluate(parseFloat(state.prev), state.operation,parseFloat(state.output))
@@ -52,7 +49,6 @@ function evaluate(firstNum, operation, secondNum) {
   let solution = ''
   switch(operation) {
     case '+':
-      console.log(typeof(firstNum), firstNum, typeof(secondNum), secondNum)
       solution = firstNum + secondNum
       break
     case '-':
