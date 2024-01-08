@@ -16,21 +16,40 @@ function reducer(state, {type, payload}) {
         output: state.output + `${payload.digit}`
       }
     case 'operation':
+      console.log(state)
       if (state.prev && state.output && state.operation) {
+        console.log('scenario 1')
        return  {
          ...payload,
          prev: evaluate(parseInt(state.prev), state.operation,parseInt(state.output)),
          output: ''
        }
       } 
-      else if (state.output) {
+      if (!state.output && payload.operation === '-') {
+        console.log('scenario 2')
+        return {
+          prev: state.prev,
+          output: '-'
+        }
+      } 
+      else if (state.output && state.output !== '-') {
+        console.log('scenario 3')
         return {
           ...payload,
           prev: state.output,
           output: ''
         }
-      } else return state
+      } else if (state.prev) {
+        console.log('scenario 4')
+        return {
+          ...payload,
+          prev: state.prev,
+          output: ''
+        }
+      }
+      else return state
       case 'evaluate':
+        console.log(state)
       if (state.prev && state.operation && state.output) {
         return {
           prev: evaluate(parseFloat(state.prev), state.operation,parseFloat(state.output)),
