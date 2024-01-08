@@ -25,9 +25,7 @@ function reducer(state, {type, payload}) {
       } 
       if (state.prev === '' && state.output === '' && payload.operation === '-') {
         return {
-          // ...payload,
           output: payload.operation,
-          // output: ''
         }
       } 
       else if (state.output && state.output !== '-') {
