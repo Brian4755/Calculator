@@ -45,7 +45,7 @@ function reducer(state, {type, payload}) {
       case 'evaluate':
       if (state.prev && state.operation && state.output) {
         return {
-          prev: evaluate(parseFloat(state.prev), state.operation,parseFloat(state.output)),
+          prev: evaluate(parseFloat(state.prev), state.operation, parseFloat(state.output)),
           output: ''
         }
       } else return state
@@ -73,7 +73,7 @@ function evaluate(firstNum, operation, secondNum) {
       solution = bigDecimal.multiply(firstNum, secondNum)
       break
     case '/':
-      solution = bigDecimal.divide(firstNum, secondNum)
+      solution = firstNum / secondNum
       break
       default: return ''
     }
