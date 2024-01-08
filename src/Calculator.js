@@ -2,14 +2,10 @@ import { useReducer } from "react";
 import Button from "./Button";
 import Operation from "./Operation";
 import bigDecimal from 'js-big-decimal';
-// const bigDecimal = require('js-big-decimal');
-// console.log(bigDecimal(12.33333333))
-// console.log(bigDecimal.subtract(6, 4.3));
 
 function reducer(state, {type, payload}) {
   switch (type) {
     case 'add-digit':
-      console.log(state)
       if (state.output === '0') {
         return state
       }
@@ -21,7 +17,6 @@ function reducer(state, {type, payload}) {
       }
     case 'operation':
       if (state.prev && state.output && state.operation) {
-        console.log('this', state)
        return  {
          ...payload,
          prev: evaluate(parseInt(state.prev), state.operation,parseInt(state.output)),
@@ -36,10 +31,8 @@ function reducer(state, {type, payload}) {
         }
       } else return state
       case 'evaluate':
-      console.log(state)
       if (state.prev && state.operation && state.output) {
         return {
-          // output: evaluate(parseFloat(state.prev), state.operation,parseFloat(state.output))
           prev: evaluate(parseFloat(state.prev), state.operation,parseFloat(state.output)),
           output: ''
         }
@@ -59,11 +52,9 @@ function evaluate(firstNum, operation, secondNum) {
   let solution = ''
   switch(operation) {
     case '+':
-      // solution = firstNum + secondNum
       solution = bigDecimal.add(firstNum, secondNum)
       break
     case '-':
-      // solution = firstNum - secondNum
       solution = bigDecimal.subtract(firstNum, secondNum)
       break
     case '*':
@@ -74,10 +65,6 @@ function evaluate(firstNum, operation, secondNum) {
       break
       default: return ''
     }
-    // return Math.round(solution * 100) / 100
-    // return console.log(bigDecimal(solution))
-    // console.log(solution)
-    // return bigDecimal.getPrettyValue(solution)
     return solution
 }
 
