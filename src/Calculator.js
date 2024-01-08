@@ -25,11 +25,12 @@ function reducer(state, {type, payload}) {
          output: ''
        }
       } 
-      if (!state.output && payload.operation === '-') {
+      if (state.prev === '' && state.output === '' && payload.operation === '-') {
         console.log('scenario 2')
         return {
-          prev: state.prev,
-          output: '-'
+          // ...payload,
+          output: payload.operation,
+          // output: ''
         }
       } 
       else if (state.output && state.output !== '-') {
@@ -51,6 +52,7 @@ function reducer(state, {type, payload}) {
       case 'evaluate':
         console.log(state)
       if (state.prev && state.operation && state.output) {
+        console.log('scenario4')
         return {
           prev: evaluate(parseFloat(state.prev), state.operation,parseFloat(state.output)),
           output: ''
