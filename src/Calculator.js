@@ -6,7 +6,7 @@ import bigDecimal from 'js-big-decimal';
 function reducer(state, {type, payload}) {
   switch (type) {
     case 'add-digit':
-      if (state.output === '0' && payload.digit != '.') {
+      if (state.output === '0' && payload.digit !== '.') {
         return state
       }
        if (payload.digit === '.' && state.output.toString().includes('.')) {
